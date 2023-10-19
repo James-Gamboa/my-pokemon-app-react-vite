@@ -38,28 +38,24 @@ const Pokemon = () => {
   return (
     <div>
       <div>
-        <button className="normal" onClick={() => filterPokemonByType("all")}>
-          All
-        </button>
-        <button className="fire" onClick={() => filterPokemonByType("fire")}>
-          Fire
-        </button>
+        <button className="normal" onClick={() => filterPokemonByType("all")}>All</button>
+        <button className="fire" onClick={() => filterPokemonByType("fire")}>Fire</button>
         <button className="water" onClick={() => filterPokemonByType("water")}>Water</button>
         <button className="grass" onClick={() => filterPokemonByType("grass")}>Grass</button>
-        <button className="electric" onClick={() => filterPokemonByType("electric")}>electric</button>
-        <button className="ice" onClick={() => filterPokemonByType("ice")}>ice</button>
-        <button className="fighting" onClick={() => filterPokemonByType("fighting")}>fighting</button>
-        <button className="poison" onClick={() => filterPokemonByType("poison")}>poison</button>
-        <button className="ground" onClick={() => filterPokemonByType("ground")}>ground</button>
-        <button className="flying" onClick={() => filterPokemonByType("flying")}>flying</button>
-        <button className="psychic" onClick={() => filterPokemonByType("psychic")}>psychic</button>
-        <button className="bug" onClick={() => filterPokemonByType("bug")}>bug</button>
-        <button className="rock" onClick={() => filterPokemonByType("rock")}>rock</button>
-        <button className="ghost" onClick={() => filterPokemonByType("ghost")}>ghost</button>
-        <button className="dark" onClick={() => filterPokemonByType("dark")}>dark</button>
-        <button className="dragon" onClick={() => filterPokemonByType("dragon")}>dragon</button>
-        <button className="steel" onClick={() => filterPokemonByType("steel")}>steel</button>
-        <button className="fairy" onClick={() => filterPokemonByType("fairy")}>fairy</button>
+        <button className="electric" onClick={() => filterPokemonByType("Electric")}>electric</button>
+        <button className="ice" onClick={() => filterPokemonByType("Ice")}>ice</button>
+        <button className="fighting" onClick={() => filterPokemonByType("Fighting")}>fighting</button>
+        <button className="poison" onClick={() => filterPokemonByType("Poison")}>poison</button>
+        <button className="ground" onClick={() => filterPokemonByType("Ground")}>ground</button>
+        <button className="flying" onClick={() => filterPokemonByType("Flying")}>flying</button>
+        <button className="psychic" onClick={() => filterPokemonByType("Psychic")}>psychic</button>
+        <button className="bug" onClick={() => filterPokemonByType("Bug")}>bug</button>
+        <button className="rock" onClick={() => filterPokemonByType("Rock")}>rock</button>
+        <button className="ghost" onClick={() => filterPokemonByType("Ghost")}>ghost</button>
+        <button className="dark" onClick={() => filterPokemonByType("Dark")}>dark</button>
+        <button className="dragon" onClick={() => filterPokemonByType("Dragon")}>dragon</button>
+        <button className="steel" onClick={() => filterPokemonByType("Steel")}>steel</button>
+        <button className="fairy" onClick={() => filterPokemonByType("Fairy")}>fairy</button>
       </div>
       <div id="listaPokemon" className="pokemon-todos">
         {filteredPokemonList.map((poke) => {
