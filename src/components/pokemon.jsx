@@ -1,12 +1,18 @@
-// @ts-nocheck
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
+// @ts-nocheck
+
 import React, { useEffect, useState } from "react";
 
 const Pokemon = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const [filteredPokemonList, setFilteredPokemonList] = useState([]);
   const [URL] = useState("https://pokeapi.co/api/v2/pokemon/");
+  const pokemonTypes = [
+    "all", "fire", "water", "grass", "electric", "ice", "fighting",
+    "poison", "ground", "flying", "psychic", "bug", "rock", "ghost",
+    "dark", "dragon", "steel", "fairy"
+  ];
 
   useEffect(() => {
     fetchPokemons();
@@ -14,7 +20,7 @@ const Pokemon = () => {
 
   const fetchPokemons = () => {
     const promises = [];
-    for (let i = 1; i <= 151; i++) {
+    for (let i = 1; i <= 251; i++) {
       promises.push(fetch(URL + i).then((response) => response.json()));
     }
 
@@ -38,24 +44,15 @@ const Pokemon = () => {
   return (
     <div>
       <div>
-        <button className="normal" onClick={() => filterPokemonByType("all")}>All</button>
-        <button className="fire" onClick={() => filterPokemonByType("fire")}>Fire</button>
-        <button className="water" onClick={() => filterPokemonByType("water")}>Water</button>
-        <button className="grass" onClick={() => filterPokemonByType("grass")}>Grass</button>
-        <button className="electric" onClick={() => filterPokemonByType("electric")}>Electric</button>
-        <button className="ice" onClick={() => filterPokemonByType("ice")}>Ice</button>
-        <button className="fighting" onClick={() => filterPokemonByType("fighting")}>Fighting</button>
-        <button className="poison" onClick={() => filterPokemonByType("poison")}>Poison</button>
-        <button className="ground" onClick={() => filterPokemonByType("ground")}>Ground</button>
-        <button className="flying" onClick={() => filterPokemonByType("flying")}>Flying</button>
-        <button className="psychic" onClick={() => filterPokemonByType("psychic")}>Psychic</button>
-        <button className="bug" onClick={() => filterPokemonByType("bug")}>Bug</button>
-        <button className="rock" onClick={() => filterPokemonByType("rock")}>Rock</button>
-        <button className="ghost" onClick={() => filterPokemonByType("ghost")}>Ghost</button>
-        <button className="dark" onClick={() => filterPokemonByType("dark")}>Dark</button>
-        <button className="dragon" onClick={() => filterPokemonByType("dragon")}>Dragon</button>
-        <button className="steel" onClick={() => filterPokemonByType("steel")}>Steel</button>
-        <button className="fairy" onClick={() => filterPokemonByType("fairy")}>Fairy</button>
+        {pokemonTypes.map((type) => (
+          <button
+            key={type}
+            className={type}
+            onClick={() => filterPokemonByType(type)}
+          >
+            {type.charAt(0).toUpperCase() + type.slice(1)}
+          </button>
+        ))}
       </div>
       <div id="listaPokemon" className="pokemon-todos">
         {filteredPokemonList.map((poke) => {
