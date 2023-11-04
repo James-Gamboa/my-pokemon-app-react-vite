@@ -18,6 +18,10 @@ button {
   width: 60px;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 body {
   min-height: 100vh;
   background-color: #ececec;

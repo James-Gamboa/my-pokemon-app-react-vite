@@ -3,6 +3,7 @@
 // @ts-nocheck
 
 import React, { useEffect, useState } from "react";
+import styles from './index.module.css';
 
 const Pokemon = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -47,17 +48,17 @@ const Pokemon = () => {
         {pokemonTypes.map((type) => (
           <button
             key={type}
-            className={type}
+            className={styles[type]}
             onClick={() => filterPokemonByType(type)}
           >
             {type.charAt(0).toUpperCase() + type.slice(1)}
           </button>
         ))}
       </div>
-      <div id="listaPokemon" className="pokemon-todos">
+      <div id="listaPokemon" className={styles['pokemon-todos']}>
         {filteredPokemonList.map((poke) => {
           let tipos = poke.types.map((type) => (
-            <p key={type.type.name} className={`${type.type.name} tipo`}>
+            <p key={type.type.name} className={`${styles[type.type.name]} ${styles.tipo}`}> {/* Use CSS Module classes for types */}
               {type.type.name}
             </p>
           ));
@@ -65,23 +66,23 @@ const Pokemon = () => {
           let pokeId = poke.id.toString().padStart(3, "0");
 
           return (
-            <div key={poke.id} className="pokemon">
-              <p className="pokemon-id-back">#{pokeId}</p>
-              <div className="pokemon-imagen">
+            <div key={poke.id} className={styles.pokemon}>
+              <p className={styles['pokemon-id-back']}>#{pokeId}</p>
+              <div className={styles['pokemon-imagen']}>
                 <img
                   src={poke.sprites.other["official-artwork"].front_default}
                   alt={poke.name}
                 />
               </div>
-              <div className="pokemon-info">
-                <div className="nombre-contenedor">
-                  <p className="pokemon-id">#{pokeId}</p>
-                  <h2 className="pokemon-nombre">{poke.name}</h2>
+              <div className={styles['pokemon-info']}>
+                <div className={styles['nombre-contenedor']}>
+                  <p className={styles['pokemon-id']}>#{pokeId}</p>
+                  <h2 className={styles['pokemon-nombre']}>{poke.name}</h2>
                 </div>
-                <div className="pokemon-tipos">{tipos}</div>
-                <div className="pokemon-stats">
-                  <p className="stat">{poke.height}m</p>
-                  <p className="stat">{poke.weight}kg</p>
+                <div className={styles['pokemon-tipos']}>{tipos}</div>
+                <div className={styles['pokemon-stats']}>
+                  <p className={styles.stat}>{poke.height}m</p>
+                  <p className={styles.stat}>{poke.weight}kg</p>
                 </div>
               </div>
             </div>
